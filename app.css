@@ -1,3 +1,51 @@
-body {
-  padding:10px;
+body{
+	background-color:#272727;
 }
+img{
+	height: 2em;
+}
+#header{
+	background-color: black;
+	padding:10px;
+}
+#info{
+	font-size:18px;
+	color:#CCC;
+}
+#logo{
+	font-size:18px;
+}
+#authButton{
+	background-color:#94C100;
+	border: #030;
+	font-size:16px;
+}
+#authButton:hover{
+	color: white;
+}
+.dis, .dis:hover, .dis:active, .dis:focus{
+	background-color: #8BBC7A;
+	color: #667;
+}
+#listButt{
+	padding-top:15px;
+}
+#playButton{
+	background-color:#94C100;
+	color:black;
+	border: #030;
+	font-size:25px;
+	padding: 19px;
+}
+
+
+
+/*list style, from http://www.marcofolio.net/css/8_different_ways_to_beautifully_style_your_lists.html*/
+/*list style, from http://www.marcofolio.net/css/8_different_ways_to_beautifully_style_your_lists.html*/
+#tracklist { width:60%; font-family:Georgia, Times, serif; font-size:15px; }
+#tracklist ul { list-style: none; }
+#tracklist ul li { }
+#tracklist ul li a { display:block; text-decoration:none; color:#000000; background-color:#FFFFFF; line-height:30px;
+  border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#CCCCCC; padding-left:10px; cursor:pointer; }
+#tracklist ul li a:hover { color:#FFFFFF; background-color:#94C100; }
+#tracklist ul li a strong { margin-right:10px; }

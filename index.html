@@ -10,7 +10,8 @@
 	<script src="https://code.jquery.com/jquery.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+    <script src="http://students.washington.edu/mikhail3/info343/spotify/spotify-template/angular-spotify/src/angular-spotify.js"></script>
 	
 	<!-- Read scripts -->
 	<script src="app.js"></script>
@@ -19,29 +20,38 @@
 </head>
 <body>
 	<!-- Initiate app -->
-	<div ng-app="myApp" ng-controller="myCtrl">
+	<div ng-app="spotApp" ng-controller="spotCtrl">
 		<!-- Form -->
-		<form class="container" name="songForm">
+    <div class='container'></div>
+    <div class='row' id='header'>
+    	<div class='col-xs-2' id ='logo'><img src='http://www.carlsednaoui.com/images/posts/spotify-1.png' alt='logo'/></div>
+    	<div class='col-xs-6' id ='info'>You must log in to Spotify to continue.</div>
+    	<div class='col-xs-4' id ='button'>
+    		    <form class='container' id="loginForm" name="loginForm">
+  <div class="form-group">
+        <button type="button" class="btn btn-default" id='authButton' ng-click="login()">Verify Your Spotify Account</button>
+	</div>
+</form>
+    	</div>
+    </div>
+    <div class='container'>
+    <div class='row' id='listButt'>
+    <div class='col-xs-12'>
+        <form class="container" name="songForm">
 			<div class="form-group">
-				<label>Spotify search:</label>
-				<input name="search" placeholder="Enter your search.." ng-model="track" class="form-control"></input>
-			</div>
-			<div class="form-group">
-				<button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit">Submit</button>
+				<button class="btn btn-primary center-block" ng-click="displayLists()" id="playButton" type="submit">Load Playlists</button>
 			</div>
 		</form>
-		
-		<!-- Results -->
-		<div class="container-fixed">
-			<div class="help-block">
-				<span ng-show="tracks.length>0">Click to sample</span>
-				<span ng-show="currentSong && !audioObject.paused">(playing)</span>
-			</div>
+        </div>
+        </div>
+        </div>
+				<!-- Results -->
+		<div class="container" id='tracklist'>
 			<ul>
-				<li ng-repeat="track in tracks" class="" ng-click="play(track.preview_url)" title="{{track.name}}">{{track.name + ', by ' + track.artists[0].name}}</li>
+				<li ng-repeat="playlist in playlists" class="" ng-click="optimize(playlist.id, playlist.tracks.total)" title="{{playlist.name}}"><a href="#"><strong>{{playlist.name}}</strong> {{' ' + playlist.tracks.total}}</a></li>
 			</ul>			
 		</div>
-	</div>
-	</div>
+		
+</div>
 </body>
 </html>
